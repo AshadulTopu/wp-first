@@ -1,0 +1,17 @@
+/* 
+Theme Name: Halim
+Author: Ashadul Islam
+Author URI: 'https://github.com/ashadultslam'
+Version: 1.0.0
+Description: Halim is a Digital Agency wordpress theme
+Tags: halim, digital agency, business, modern design, wordpress, html5, css3
+*/
+
+/* css */
+.comments input,
+.comments textarea {
+  margin-bottom: 0px;
+}
+#wp-comment-cookies-consent {
+  width: auto;
+}
