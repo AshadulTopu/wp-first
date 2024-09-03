@@ -1,19 +1,51 @@
-  <!-- CTA Area Start Here -->
+
+<?php
+    $config = get_option('halim_options');
+    $cta_switcher = $config['cta_switcher'];
+
+    if($cta_switcher){
+
+?>
+<!-- CTA Area Start Here -->
   <section class="cta-area">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h4>best solution for your business </h4>
-                <p>the can be used on larger scale projectss as well as small scale projectss</p>
+                <?php 
+                    // $config = get_option('halim_options');
+                    $cta_title = $config['cta_title'];
+                    $cta_subtitle = $config['cta_subtitle'];
+                    $cta_btn_text = $config['cta_btn_text'];
+                    $cta_btn_link = $config['cta_btn_link'];
+                ?>
+                <?php
+                    if($cta_title){
+                        echo '<h4>'.$cta_title.'</h4>';
+                    }
+                ?>
+                <?php
+                    if($cta_subtitle){
+                        echo '<p>'.$cta_subtitle.'</p>';
+                    }
+                ?>
+                <!-- <h4>best solution for your business </h4>
+                <p>the can be used on larger scale projectss as well as small scale projectss</p> -->
             </div>
             <div class="col-md-6 text-center">
-                <a href="" class="box-btn">contact us</a>
+                <?php
+                    if($cta_btn_text){
+                        echo '<a href="'.$cta_btn_link.'" class="box-btn">'.$cta_btn_text.'</a>';
+                    }
+                ?>
+                <!-- <a href="" class="box-btn">contact us</a> -->
             </div>
         </div>
     </div>
 </section>
 <!-- CTA Area End Here -->
-    
+<?php
+    }
+?>
     
     <!-- Footer Area Start Here -->
     <footer class="footer-area bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/footer-bg.png');">
@@ -66,17 +98,43 @@
             <div class="row footer-bottom">
                 <div class="col-sm-6">
                     <div class="footer-copy">
-                        <p>&copy; All Rights Reserved 2022</p>
+                        <?php
+                            $footer_copy = $config['footer_text'];
+                        ?>
+                        <?php
+                            if($footer_copy){
+                                echo '<p>'.$footer_copy.'</p>';
+                            }
+                        ?>
+                        <!-- <p>&copy; All Rights Reserved 2022</p> -->
                     </div>
                 </div>
                 <div class="col-sm-6 text-end">
                     <div class="footer-social">
+                    <?php
+                    $footer_social = $config['footer_social'];
+                    $footer_link_target = $config['footer_link_target'];
+
+                    // var_dump($footer_link_target);
+
+                    if($footer_social){
+                        foreach($footer_social as $social){
+                            $icon = $social['social_icon'];
+                            $link = $social['social_link'];
+                            ?>
+                                <a target="<?php echo $footer_link_target; ?>" href="<?php echo $link; ?>"><i class="<?php echo $icon; ?>"></i></a>
+                                <?php
+                        }
+                    }
+                    ?>
+                    </div>
+                    <!-- <div class="footer-social">
                         <a href=""><i class="fab fa-facebook-f"></i></a>
                         <a href=""><i class="fab fa-twitter"></i></a>
                         <a href=""><i class="fab fa-instagram"></i></a>
                         <a href=""><i class="fab fa-linkedin-in"></i></a>
                         <a href=""><i class="fab fa-youtube"></i></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

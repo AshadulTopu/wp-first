@@ -49,97 +49,103 @@ add_action( 'wp_enqueue_scripts', 'halim_css_js_enqueue' );
 
 
 
-// Custom function for post
-function halim_custom_posts() {
-    // sliders custom post
-    register_post_type( 'sliders', array(
-        'labels' => array(
-            'name' => __('Sliders', 'halim'),
-            'singular_name' =>  __('Sliders', 'halim')
-        ),
-        'public' => true,
-        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
-    )
-    );
+// // Custom function for post
+// function halim_custom_posts() {
+//     // sliders custom post
+//     register_post_type( 'sliders', array(
+//         'labels' => array(
+//             'name' => __('Sliders', 'halim'),
+//             'singular_name' =>  __('Sliders', 'halim')
+//             'add_new'=> __('Add New Slider','halim'),
+//             'add_new_item'=> __(' Add New Slider','halim'),
+//             'featured_image'=> __('Slider Image','halim'),
+//             'set_featured_image'=> __('Set Slider Image','halim'),
+//             'search_items' => __('Search Sliders','halim'),
+//             'edit_item'=> __('Edit Slider','halim'),
+//         ),
+//         'public' => true,
+//         'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+//     )
+//     );
 
-    // services custom post
-    register_post_type( 'services', array(
-        'labels' => array(
-            'name' => __('Services', 'halim'),
-            'singular_name' =>  __('Service', 'halim')
-        ),
-        'public' => true,
-        'supports' => array( 'title', 'editor', 'custom-fields' ),
-    )
-    );
+//     // services custom post
+//     register_post_type( 'services', array(
+//         'labels' => array(
+//             'name' => __('Services', 'halim'),
+//             'singular_name' =>  __('Service', 'halim')
+//         ),
+//         'public' => true,
+//         'supports' => array( 'title', 'editor', 'custom-fields' ),
+//     )
+//     );
 
-    // teams custom post
-    register_post_type( 'teams', array(
-        'labels' => array(
-            'name' => __('Teams', 'halim'),
-            'singular_name' =>  __('Team', 'halim')
-        ),
-        'public' => true,
-        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
-    )
-    );
+//     // teams custom post
+//     register_post_type( 'teams', array(
+//         'labels' => array(
+//             'name' => __('Teams', 'halim'),
+//             'singular_name' =>  __('Team', 'halim')
+//         ),
+//         'public' => true,
+//         'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
+//     )
+//     );
 
-    // testimonials custom post
-    register_post_type( 'testimonials', array(
-        'labels' => array(
-            'name' => __('Testimonials', 'halim'),
-            'singular_name' =>  __('Testimonial', 'halim')
-        ),
-        'public' => true,
-        'supports' => array( 'thumbnail', 'custom-fields', 'page-attributes' ),
-    )
-    );
+//     // testimonials custom post
+//     register_post_type( 'testimonials', array(
+//         'labels' => array(
+//             'name' => __('Testimonials', 'halim'),
+//             'singular_name' =>  __('Testimonial', 'halim')
+//         ),
+//         'public' => true,
+//         'supports' => array( 'thumbnail', 'custom-fields', 'page-attributes' ),
+//     )
+//     );
 
-    // gallery custom post
-    register_post_type( 'gallery', array(
-        'labels' => array(
-            'name' => __('Gallerys', 'halim'),
-            'singular_name' =>  __('Gallery', 'halim')
-        ),
-        'public' => true,
-        'supports' => array( 'title', 'custom-fields', 'page-attributes' ),
-    )
-    );
+//     // gallery custom post
+//     register_post_type( 'gallery', array(
+//         'labels' => array(
+//             'name' => __('Gallerys', 'halim'),
+//             'singular_name' =>  __('Gallery', 'halim')
+//         ),
+//         'public' => true,
+//         'supports' => array( 'title', 'custom-fields', 'page-attributes' ),
+//     )
+//     );
 
-    // portfolio custom post
-    register_post_type( 'portfolio', array(
-        'labels' => array(
-            'name' => __('Portfolios', 'halim'),
-            'singular_name' =>  __('portfolio', 'halim')
-        ),
-        'public' => true,
-        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
-    )
-    );
+//     // portfolio custom post
+//     register_post_type( 'portfolio', array(
+//         'labels' => array(
+//             'name' => __('Portfolios', 'halim'),
+//             'singular_name' =>  __('portfolio', 'halim')
+//         ),
+//         'public' => true,
+//         'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes' ),
+//     )
+//     );
 
-    // portfolio taxonomy
-    register_taxonomy( 'portfolio-type', 'portfolio', array(
-        'labels' => array(
-            'name' => __( 'Portfolio Types', 'halim' ),
-            'singular_name' => __( 'Portfolio Type', 'halim' ),
-            // 'search_items' =>  __( 'Search Portfolio Types', 'halim' ),
-            // 'all_items' => __( 'All Portfolio Types', 'halim' ),
-            // 'parent_item' => __( 'Parent Portfolio Type', 'halim' ),
-            // 'parent_item_colon' => __( 'Parent Portfolio Type:', 'halim' ),
-            // 'edit_item' => __( 'Edit Portfolio Type', 'halim' ),
-            // 'update_item' => __( 'Update Portfolio Type', 'halim' ),
-            // 'add_new_item' => __( 'Add New Portfolio Type', 'halim' ),
-            // 'new_item_name' => __( 'New Portfolio Type Name', 'halim' ),
-            // 'menu_name' => __( 'Portfolio Types', 'halim' ),
-        ),
-        'hierarchical' => true,
-        'public' => true,
-        // 'show_ui' => true,
-        'show_admin_column' => true,
-    ) );
-}
+//     // portfolio taxonomy
+//     register_taxonomy( 'portfolio-type', 'portfolio', array(
+//         'labels' => array(
+//             'name' => __( 'Portfolio Types', 'halim' ),
+//             'singular_name' => __( 'Portfolio Type', 'halim' ),
+//             // 'search_items' =>  __( 'Search Portfolio Types', 'halim' ),
+//             // 'all_items' => __( 'All Portfolio Types', 'halim' ),
+//             // 'parent_item' => __( 'Parent Portfolio Type', 'halim' ),
+//             // 'parent_item_colon' => __( 'Parent Portfolio Type:', 'halim' ),
+//             // 'edit_item' => __( 'Edit Portfolio Type', 'halim' ),
+//             // 'update_item' => __( 'Update Portfolio Type', 'halim' ),
+//             // 'add_new_item' => __( 'Add New Portfolio Type', 'halim' ),
+//             // 'new_item_name' => __( 'New Portfolio Type Name', 'halim' ),
+//             // 'menu_name' => __( 'Portfolio Types', 'halim' ),
+//         ),
+//         'hierarchical' => true,
+//         'public' => true,
+//         // 'show_ui' => true,
+//         'show_admin_column' => true,
+//     ) );
+// }
 
-add_action( 'init', 'halim_custom_posts' );
+// add_action( 'init', 'halim_custom_posts' );
 
 
 // halim custom widgets
@@ -240,3 +246,7 @@ function halim_comments_field($field) {
 
 // add_filter('comment_form_defaults', 'halim_comments_field');
 add_filter('comment_form_fields', 'halim_comments_field');
+
+
+
+require_once get_template_directory() . '/inc/halim-activation.php' ;

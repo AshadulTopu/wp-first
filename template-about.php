@@ -17,58 +17,92 @@ get_header();?>
     </section>
     <!-- breadcrumb Area End Here -->
 
-     <!-- About Area Start Here -->
-     <div class="section about-area pt-100 pb-100">
+   <!-- About Area Start Here -->
+    <div class="section about-area pt-100 pb-100">
         <div class="container">
             <div class="row section-title align-items-center">
+
+            <?php
+
+            $config = get_option('halim_options');
+            $about_title = $config['about_title'];
+            $sub_title = $config['about_subtitle'];
+            $about_desc = $config['about_desc'];
+
+            ?>
                 <div class="col-md-6 text-md-end text-sm-center">
-                    <span>who we are?</span>
-                    <h4>about us</h4>
+                    <?php
+                    if($sub_title){
+                        echo '<span>'.$sub_title.'</span>';
+                    }
+                    ?>
+                    <!-- <span><?php echo $sub_title; ?></span> -->
+                     <?php 
+                    if($about_title){
+                        echo '<h4>'.$about_title.'</h4>';
+                    }
+                    ?>
+                    <!-- <h4><?php echo $about_title; ?></h4> -->
                 </div>
                 <div class="col-md-6">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo vitae dicta, hic sapiente sit perspiciatis modi officiis inventore architecto minima.</p>
+                    <?php
+                    if($about_desc){
+                        echo '<p>'.$about_desc.'</p>';
+                    }
+                    ?>
+                    <!-- <p><?php echo $about_desc; ?></p> -->
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-xl-7 col-lg-6">
                     <div class="about-content">
-                        <h4>welcome to halim</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ipsa! Officia, nihil accusantium perspiciatis officiis assumenda odio nemo amet cupiditate.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ipsa! Officia, nihil accusantium perspiciatis officiis assumenda odio nemo amet cupiditate.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ipsa! Officia, nihil accusantium perspiciatis officiis assumenda odio nemo amet cupiditate.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ipsa! Officia, nihil accusantium perspiciatis officiis assumenda odio nemo amet cupiditate.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ipsa! Officia, nihil accusantium perspiciatis officiis assumenda odio nemo amet cupiditate.</p>
-                        <a href="" class="box-btn">read more</a>
+                        <?php
+                        $about_content_title = $config['about_content_title'];
+                        $about_content = $config['about_content'];
+                        $about_content_btn = $config['about_content_btn'];
+                        ?>
+                        <?php
+                        if($about_content_title){
+                            echo '<h4>'.$about_content_title.'</h4>';
+                        }
+                        ?>
+                        <?php
+                        if($about_content){
+                            echo '<div class="mb-lg-4 mb-3">'.$about_content.'</div>';
+                        }
+                        ?>
+                        <?php
+                        if($about_content_btn){
+                            echo '<a href="'.$about_content_btn.'" class="box-btn">read more</a>';
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-6 mt-5 mt-lg-0">
-                    <div class="single-about">
-                        <div class="icon">
-                            <i class="fas fa-laptop"></i>
+
+                <?php
+                $about_features = $config['about_page_features'];
+
+                if($about_features){
+                    foreach($about_features as $feature){
+                        $icon = $feature['feature_icon'];
+                        $title = $feature['feature_title'];
+                        $desc = $feature['feature_content'];
+                        ?>
+                        <div class="single-about">
+                            <div class="icon">
+                                <i class="fas <?php echo $icon; ?>"></i>
+                            </div>
+                            <div>
+                                <h4><?php echo $title; ?></h4>
+                                <p><?php echo $desc; ?></p>
+                            </div>
                         </div>
-                        <div>
-                            <h4>our mission</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam corrupti sunt quibusdam, error amet ex excepturi neque at! Dolor, atque.</p>
-                        </div>
-                    </div>
-                    <div class="single-about">
-                        <div class="icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div>
-                            <h4>our vission</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam corrupti sunt quibusdam, error amet ex excepturi neque at! Dolor, atque.</p>
-                        </div>
-                    </div>
-                    <div class="single-about">
-                        <div class="icon">
-                            <i class="fas fa-pencil-alt"></i>
-                        </div>
-                        <div>
-                            <h4>our history</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam corrupti sunt quibusdam, error amet ex excepturi neque at! Dolor, atque.</p>
-                        </div>
-                    </div>
+                        <?php
+                    }
+                }
+                ?>
                 </div>
             </div>
         </div>

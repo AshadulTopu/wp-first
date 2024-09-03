@@ -23,7 +23,23 @@ get_header();?>
             <div class="row">
                 <div class="col-xxl-12 col-md-12 mx-auto">
                     <div class="row">
-                        <div class="col-md-4">
+                        <?php 
+                        $config = get_option('halim_options');
+                        $contact_info = $config['contact_info'];
+
+                        if($contact_info){
+                            foreach($contact_info as $info){
+                                echo '<div class="col-md-4">
+                                <div class="contact-address">
+                                    <i class="fas fa-'.$info['contact_icon'].'"></i>
+                                    <h4>'.$info['contact_title'].' <span>'.$info['contact_text'].'</span></h4>
+                                </div>
+                            </div>';
+                            }
+                        }
+                        
+                        ?>
+                        <!-- <div class="col-md-4">
                             <div class="contact-address">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <h4>address <span>123, michighan, usa</span></h4>
@@ -40,7 +56,7 @@ get_header();?>
                                 <i class="fas fa-envelope"></i>
                                 <h4>email <span>info@halim.com</span></h4>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-md-7">
@@ -57,7 +73,18 @@ get_header();?>
                         </div>
                         <div class="col-md-5">
                             <div class="contact-map">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.325587665938!2d91.86642381497002!3d24.920975984025414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3750551e7da58bcd%3A0x7cd35cba3faa14e7!2sSylhet%20International%20Cricket%20Stadium!5e0!3m2!1sen!2sbd!4v1618568732799!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe>
+                                <?php 
+                                    $map = $config['contact_map'];
+                                    var_dump($map);
+                                ?>
+                                <iframe src="https://maps.google.com/maps?q=<?php echo $map['latitude']; ?>,<?php echo $map['longitude']; ?>&z=15$output=embed"></iframe>
+
+                                    <!-- <iframe 
+                                    src="https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&center=<?php echo $latitude; ?>,<?php echo $longitude; ?>&zoom=15"
+                                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                                    </iframe> -->
+
+                                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.325587665938!2d91.86642381497002!3d24.920975984025414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3750551e7da58bcd%3A0x7cd35cba3faa14e7!2sSylhet%20International%20Cricket%20Stadium!5e0!3m2!1sen!2sbd!4v1618568732799!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe> -->
                             </div>
                         </div>
                     </div>

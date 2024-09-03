@@ -1,4 +1,4 @@
 1. menu bar 
-2. custom css not work
 3. footer widget some issue
 4. pagination not work 
+5. contact page map not work

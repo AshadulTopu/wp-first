@@ -1,11 +1,15 @@
 
+<?php 
+    $config = get_option('halim_options');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="<?php echo  $config['favicon']['url']; ?>" type="image/x-icon">
     <!-- Title -->
-    
       <?php wp_head();?>
 
 </head>
@@ -17,9 +21,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-7">
                     <div class="top-left">
-                        <?php 
-                        $config = get_option('halim_options');
-                        ?>
+                        
                         <?php                         
                         if($config['header_email']){
                             echo '<a href="mailto:'.$config['header_email'].'"> <i class="far fa-envelope"></i> ' .$config['header_email']. '</a>';
